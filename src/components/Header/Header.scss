@@ -1,0 +1,95 @@
+@use '../Layout/Layout.scss' as layout;
+@use '../../components/styles/global.scss' as *;
+
+.header {
+  background-color: $background-header-light;
+
+  &__body {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+
+    @include layout.breakpoint(sm) {
+      padding: 18px 0;
+    }
+  }
+
+  &__logo {
+    margin-right: auto;
+
+    @include layout.breakpoint(sm) {
+      max-width: 133px;
+    }
+  }
+
+  &__search-form {
+    margin-right: 50px;
+
+    @include layout.breakpoint(md) {
+      margin-right: 20px;
+      margin-left: 30px;
+    }
+
+    @include layout.breakpoint(sm) {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @include layout.breakpoint(sm) {
+      display: block;
+    }
+  }
+}
+
+.search-form {
+  &__form {
+    display: flex;
+    gap: 5px;
+    height: 40px;
+  }
+
+  &__input {
+    outline: none;
+    background-color: $background-light;
+    border-radius: 4px;
+    width: 300px;
+    padding: 0px 10px;
+
+    @include layout.breakpoint(md) {
+      width: 250px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+    cursor: pointer;
+  }
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @include layout.breakpoint(sm) {
+    display: none;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background: linear-gradient(to bottom, $button-gradient-from, $button-gradient-to);
+    border-radius: 4px;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+  }
+}
