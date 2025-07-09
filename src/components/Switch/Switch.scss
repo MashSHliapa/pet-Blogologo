@@ -1,0 +1,46 @@
+@use '../../styles/global.scss' as *;
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+
+  &__input {
+    width: 0;
+    height: 0;
+    cursor: pointer;
+  }
+
+  &__slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $background-light;
+    background-color: $background-light;
+    cursor: pointer;
+    border-radius: 34px;
+  }
+
+  &__slider::before {
+    content: '';
+    position: absolute;
+    top: 1.5px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-color: $color-white;
+    border-radius: 34px;
+    transition: all 0.4s ease;
+  }
+
+  &__input:checked + &__slider::before {
+    transform: translateX(16px);
+  }
+
+  &__input:checked + &__slider {
+    background-color: $button-common-color;
+  }
+}
