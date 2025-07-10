@@ -18,26 +18,28 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: $background-light;
-    background-color: $background-light;
+    background-color: $background-light-overlay-30;
     cursor: pointer;
-    border-radius: 34px;
   }
 
   &__slider::before {
     content: '';
     position: absolute;
-    top: 1.5px;
-    left: 0;
+    top: 1.7px;
+    left: 1px;
     width: 16px;
     height: 16px;
     background-color: $color-white;
-    border-radius: 34px;
     transition: all 0.4s ease;
   }
 
+  &__slider,
+  &__slider::before {
+    border-radius: 34px;
+  }
+
   &__input:checked + &__slider::before {
-    transform: translateX(16px);
+    transform: translateX(14px);
   }
 
   &__input:checked + &__slider {
