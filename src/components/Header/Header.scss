@@ -2,7 +2,7 @@
 @use '../../styles/global.scss' as *;
 
 .header {
-  background-color: $background-header-light;
+  background-color: $background-surface-light;
 
   &__body {
     display: flex;
@@ -53,7 +53,7 @@
 
   &__input {
     outline: none;
-    background-color: $background-light;
+    background-color: $background-default-light;
     border-radius: 4px;
     width: 300px;
     padding: 0px 10px;
