@@ -1,4 +1,4 @@
-import { CardCatalog } from '../CardCatalog/CardCatalog';
+import { Blog } from '../../pages/Blog/Blog';
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import './Layout.scss';
@@ -7,7 +7,7 @@ export function Layout() {
   return (
     <div className="layout">
       <Header />
-      <CardCatalog/>
+      <Blog />
       <Footer />
     </div>
   );
