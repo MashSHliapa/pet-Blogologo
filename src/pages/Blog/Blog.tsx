@@ -1,16 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import type { Action, ThunkDispatch } from '@reduxjs/toolkit';
+import { fetchBlog } from '../../redux/blogSlice';
 import { CardCatalog } from '../../components/CardCatalog/CardCatalog';
-import type { ICatalogCard } from '../../types/interfaces';
+import type { RootState } from '../../redux/store';
+import type { DataBlogResponse } from '../../types/interfaces';
 import './Blog.scss';
 
 export function Blog() {
-  const [posts, setPosts] = useState<ICatalogCard[]>([]);
+  const { data: posts, loading, error } = useSelector((state: RootState) => state.blog);
+  const dispatch = useDispatch<ThunkDispatch<DataBlogResponse, null, Action>>();
 
   useEffect(() => {
-    fetch('https://api.spaceflightnewsapi.net/v4/blogs')
-      .then((response) => response.json())
-      .then((data) => setPosts(data.results));
-  }, []);
+    dispatch(fetchBlog());
+  }, [dispatch]);
+
+  if (loading) {
+    return <div className="catalog__loading">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-danger">{error}</div>;
+  }
 
   const blog = posts.map((item) => <CardCatalog key={item.id} post={item} />);
 
