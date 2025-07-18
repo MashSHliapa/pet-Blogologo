@@ -1,8 +1,15 @@
 @use '../Layout/Layout.scss' as layout;
 @use '../../styles/global.scss' as *;
 
-.footer {
+.footer-light {
   color: $color-text-light-transparent;
+}
+
+.footer-dark {
+  color: $color-dark-overlay-50;
+}
+
+.footer {
   font-weight: $font-weight-regular;
 
   &__body {
@@ -21,7 +28,14 @@
   &__separator {
     width: 100%;
     height: 1px;
+  }
+
+  &__separator_light {
     background-color: $background-light-overlay-10;
+  }
+
+  &__separator_dark {
+    background-color: $background-dark-overlay-10;
   }
 
   &__switch-wrapper {

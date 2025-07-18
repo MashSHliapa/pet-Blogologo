@@ -1,9 +1,15 @@
 @use '../Layout/Layout.scss' as layout;
 @use '../../styles/global.scss' as *;
 
-.header {
+.header-light {
   background-color: $background-surface-light;
+}
 
+.header-dark {
+  background-color: $background-dark-overlay-10;
+}
+
+.header {
   &__body {
     display: flex;
     align-items: center;
@@ -85,7 +91,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #ffffff;
+    color: $color-white;
     background: linear-gradient(to bottom, $button-gradient-from, $button-gradient-to);
     border-radius: 4px;
     width: 48px;

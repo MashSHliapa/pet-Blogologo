@@ -1,11 +1,15 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../Context/ThemeContext';
 import logo from '../../assets/images/logo.svg';
 import search from '../../assets/icons/search_icon.svg';
 import burger from '../../assets/icons/burger.svg';
 import './Header.scss';
 
 export function Header() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <header className="header">
+    <header className={theme ? 'header header-dark' : 'header header-light'}>
       <div className="header__container _container">
         <div className="header__body">
           <div className="header__logo">

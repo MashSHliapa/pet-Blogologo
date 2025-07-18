@@ -3,8 +3,6 @@
 
 .card-catalog {
   &__body {
-    background-color: $background-surface-light;
-    border-radius: 30px;
     max-width: 352px;
 
     @include layout.breakpoint(md) {
@@ -44,6 +42,8 @@
   }
 
   &__info {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
     padding: 32px;
 
     @include layout.breakpoint(sm) {
@@ -51,10 +51,25 @@
     }
   }
 
+  &__info_light {
+    background-color: $background-surface-light;
+  }
+
+  &__info_dark {
+    background-color: $background-dark-overlay-10;
+  }
+
   &__date {
     font-weight: $font-weight-medium;
-    color: $color-text-light-transparent;
     margin-bottom: 8px;
+  }
+
+  &__date_light {
+    color: $color-text-light-transparent;
+  }
+
+  &__date_dark {
+    color: $color-dark-overlay-50;
   }
 
   &__description {
