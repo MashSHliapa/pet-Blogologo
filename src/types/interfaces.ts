@@ -10,3 +10,9 @@ export interface DataBlogResponse {
   error: null | string;
   data: ICatalogCard[];
 }
+
+export interface ICardItem {
+  title: string;
+  image_url: string;
+  summary: string;
+}

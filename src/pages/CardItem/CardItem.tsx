@@ -1,28 +1,34 @@
-import './CardItem.scss';
-import image from '../../assets/images/image.jpg';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import type { ICardItem } from '../../types/interfaces';
 import facebook from '../../assets/icons/facebook.svg';
 import twitter from '../../assets/icons/twitter.svg';
 import more from '../../assets/icons/more-horizontal.svg';
+import './CardItem.scss';
 
 export function CardItem() {
+  const [post, setPost] = useState<Partial<ICardItem>>({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`https://api.spaceflightnewsapi.net/v4/blogs/${id}`)
+      .then((response) => response.json())
+      .then((data) => setPost(data));
+  }, [id]);
+  console.log(id)
+
   return (
     <div className="card-item">
       <div className="card-item__container _container">
         <div className="card-item__body">
           <div className="card-item__breadcrumbs">Home/Post 14278</div>
           <div className="card-item__info">
-            <h2 className="card-item__title">Astronauts prep for new solar arrays on nearly seven-hour spacewalk</h2>
+            <h2 className="card-item__title">{post.title}</h2>
             <div className="card-item__image">
-              <img src={image} alt="image" />
+              <img src={post.image_url} alt="image" />
             </div>
             <div className="card-item__content">
-              <h4 className="card-item__text">
-                The stories tracked Hambling’s trailblazing career while focusing on her current and upcoming projects.
-                The artist’s installation Relic, produced alongside sound recordist Chris Watson, was recently on view
-                at Snape Maltings in London. Meanwhile, this October, portraits by Hambling will be presented at the
-                Italian gallery Thomas Brambilla. The artist’s “Wave Series” is also currently being exhibited in the
-                group show “Summer Exhibition” at Marlborough London, which runs through September 10th.
-              </h4>
+              <h4 className="card-item__text">{post.summary}</h4>
               <div className="card-item__icons">
                 <div className="card-item__icon">
                   <img src={facebook} alt="facebook" />

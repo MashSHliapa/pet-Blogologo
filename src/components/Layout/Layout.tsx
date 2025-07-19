@@ -4,6 +4,7 @@ import { CardItem } from '../../pages/CardItem/CardItem';
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import './Layout.scss';
+import { Outlet } from 'react-router-dom';
 
 export function Layout() {
   const { theme } = useContext(ThemeContext);
@@ -21,7 +22,7 @@ export function Layout() {
   return (
     <div className="layout">
       <Header />
-      <CardItem />
+      <Outlet />
       <Footer />
     </div>
   );

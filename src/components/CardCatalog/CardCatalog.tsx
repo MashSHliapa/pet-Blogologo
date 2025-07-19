@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import { ThemeContext } from '../Context/ThemeContext';
 import type { ICatalogCard } from '../../types/interfaces';
 import './CardCatalog.scss';
@@ -7,7 +8,7 @@ export function CardCatalog(props: { post: ICatalogCard }) {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="card-catalog">
+    <NavLink to={`/selected/${props.post.id}`} className="card-catalog">
       <div className="card-catalog__body">
         <div className="card-catalog__image">
           <img src={props.post.image_url} alt="image" />
@@ -27,6 +28,6 @@ export function CardCatalog(props: { post: ICatalogCard }) {
           <h3 className="card-catalog__description">{props.post.title}</h3>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 }
