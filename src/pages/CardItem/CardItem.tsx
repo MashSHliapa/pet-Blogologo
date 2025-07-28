@@ -1,21 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import type { Action, ThunkDispatch } from '@reduxjs/toolkit';
 import { useParams } from 'react-router-dom';
-import type { ICardItem } from '../../types/interfaces';
+import { fetchCardItem } from '../../redux/cardItemSlice';
+import type { RootState } from '../../redux/store';
+import type { DataItemCardResponse } from '../../types/interfaces';
 import facebook from '../../assets/icons/facebook.svg';
 import twitter from '../../assets/icons/twitter.svg';
 import more from '../../assets/icons/more-horizontal.svg';
 import './CardItem.scss';
 
 export function CardItem() {
-  const [post, setPost] = useState<Partial<ICardItem>>({});
+  const { data: post, loading, error } = useSelector((state: RootState) => state.cardItem);
   const { id } = useParams();
+  const dispatch = useDispatch<ThunkDispatch<DataItemCardResponse, null, Action>>();
 
   useEffect(() => {
-    fetch(`https://api.spaceflightnewsapi.net/v4/blogs/${id}`)
-      .then((response) => response.json())
-      .then((data) => setPost(data));
-  }, [id]);
-  console.log(id)
+    if (id) {
+      dispatch(fetchCardItem({ id }));
+    }
+  }, [dispatch, id]);
+
+  if (loading) {
+    return <div className="catalog__loading">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-danger">{error}</div>;
+  }
 
   return (
     <div className="card-item">

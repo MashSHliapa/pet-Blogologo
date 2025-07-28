@@ -16,3 +16,9 @@ export interface ICardItem {
   image_url: string;
   summary: string;
 }
+
+export interface DataItemCardResponse {
+  loading: boolean;
+  error: null | string;
+  data: ICardItem;
+}
