@@ -12,6 +12,7 @@ export interface DataBlogResponse {
 }
 
 export interface ICardItem {
+  id: number;
   title: string;
   image_url: string;
   summary: string;
