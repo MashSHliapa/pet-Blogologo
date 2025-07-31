@@ -17,7 +17,6 @@ export function CardItem() {
   const dispatch = useDispatch<ThunkDispatch<DataItemCardResponse, null, Action>>();
   const favorites = useSelector((state: RootState) => state.favorites.data);
   const isFavorite = post ? favorites.some((item: ICatalogCard) => item.id === post.id) : false;
-  console.log(isFavorite);
 
   function handleToggleFavoriteCard() {
     if (isFavorite) {

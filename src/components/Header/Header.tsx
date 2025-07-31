@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../Context/ThemeContext';
+import { SearchForm } from '../SearchForm/SearchForm';
 import logo from '../../assets/images/logo.svg';
-import search from '../../assets/icons/search_icon.svg';
 import burger from '../../assets/icons/burger.svg';
 import './Header.scss';
 
@@ -16,12 +16,7 @@ export function Header() {
             <img src={logo} alt="logo" />
           </div>
           <div className="header__search-form search-form">
-            <form action="#" className="search-form__form">
-              <input type="text" className="search-form__input" />
-              <button type="submit" className="search-form__button">
-                <img src={search} alt="search" />
-              </button>
-            </form>
+            <SearchForm />
           </div>
           <div className="header__user user">
             <div className="user__icon">MS</div>

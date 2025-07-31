@@ -3,6 +3,7 @@ import { Layout } from './components/Layout/Layout';
 import { Blog } from './pages/Blog/Blog';
 import { CardItem } from './pages/CardItem/CardItem';
 import { Favorites } from './pages/Favorites/Favorites';
+import { SearchResult } from './pages/SearchResult/SearchResult';
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
       {
         path: '/favorites',
         element: <Favorites />,
+      },
+      {
+        path: '/search-result/:request',
+        element: <SearchResult />,
       },
     ],
   },
