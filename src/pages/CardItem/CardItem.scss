@@ -10,14 +10,6 @@
     }
   }
 
-  &__info {
-    margin-top: 32px;
-
-    @include layout.breakpoint(sm) {
-      margin-top: 28px;
-    }
-  }
-
   &__info > :not(:last-child),
   &__content > :not(:last-child) {
     margin-bottom: 48px;

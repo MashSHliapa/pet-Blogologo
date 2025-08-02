@@ -10,6 +10,7 @@ import facebook from '../../assets/icons/facebook.svg';
 import twitter from '../../assets/icons/twitter.svg';
 import more from '../../assets/icons/more-horizontal.svg';
 import './CardItem.scss';
+import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
 
 export function CardItem() {
   const { data: post, loading, error } = useSelector((state: RootState) => state.cardItem);
@@ -44,7 +45,9 @@ export function CardItem() {
     <div className="card-item">
       <div className="card-item__container _container">
         <div className="card-item__body">
-          <div className="card-item__breadcrumbs">Home/Post 14278</div>
+          <div className="card-item__breadcrumbs breadcrumbs">
+            <Breadcrumbs currentPage={post.id} />
+          </div>
           <div className="card-item__info">
             <h2 className="card-item__title">{post.title}</h2>
             <div className="card-item__image">

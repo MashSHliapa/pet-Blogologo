@@ -92,3 +92,11 @@ body.dark-theme {
   margin: 0 auto;
   padding: 0 15px;
 }
+
+.breadcrumbs {
+  margin-bottom: 32px;
+
+  @include breakpoint(sm) {
+    margin-bottom: 28px;
+  }
+}

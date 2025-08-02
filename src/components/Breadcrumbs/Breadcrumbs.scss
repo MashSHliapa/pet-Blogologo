@@ -1,0 +1,21 @@
+@use '../Layout/Layout.scss' as layout;
+@use '../../styles/global.scss' as *;
+
+.breadcrumbs {
+  &__list {
+    display: flex;
+    font-weight: $font-weight-regular;
+  }
+
+  &__item-active_light {
+    color: $color-text-light-transparent;
+  }
+
+  &__item-active_dark {
+    color: $color-dark-overlay-50;
+  }
+
+  &__slash {
+    margin: 0 8px;
+  }
+}
