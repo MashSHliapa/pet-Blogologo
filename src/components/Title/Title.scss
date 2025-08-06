@@ -1,0 +1,13 @@
+@use '../../components/Layout/Layout.scss' as layout;
+@use '../../styles/global.scss' as *;
+
+.title {
+  &__text {
+    font-size: $font-size-large;
+    font-weight: $font-weight-large;
+
+    @include layout.breakpoint(sm) {
+      font-size: $font-size-large-medium;
+    }
+  }
+}

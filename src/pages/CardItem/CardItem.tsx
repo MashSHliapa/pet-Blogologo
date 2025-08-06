@@ -4,13 +4,14 @@ import type { Action, ThunkDispatch } from '@reduxjs/toolkit';
 import { useParams } from 'react-router-dom';
 import { fetchCardItem } from '../../redux/cardItemSlice';
 import { addCardToFavorites, removeCardFromFavorites } from '../../redux/favoritesSlice';
+import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
+import { Title } from '../../components/Title/Title';
 import type { RootState } from '../../redux/store';
 import type { DataItemCardResponse, ICatalogCard } from '../../types/interfaces';
 import facebook from '../../assets/icons/facebook.svg';
 import twitter from '../../assets/icons/twitter.svg';
 import more from '../../assets/icons/more-horizontal.svg';
 import './CardItem.scss';
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
 
 export function CardItem() {
   const { data: post, loading, error } = useSelector((state: RootState) => state.cardItem);
@@ -49,7 +50,9 @@ export function CardItem() {
             <Breadcrumbs currentPage={post.id} />
           </div>
           <div className="card-item__info">
-            <h2 className="card-item__title">{post.title}</h2>
+            <h2 className="card-item__title">
+              <Title>{post.title}</Title>
+            </h2>
             <div className="card-item__image">
               <img src={post.image_url} alt="image" />
             </div>

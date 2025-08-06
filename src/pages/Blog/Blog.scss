@@ -10,14 +10,6 @@
     }
   }
 
-  &__title {
-    font-size: $font-size-large;
-
-    @include layout.breakpoint(sm) {
-      font-size: $font-size-large-medium;
-    }
-  }
-
   &__catalog {
     display: flex;
     justify-content: center;

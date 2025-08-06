@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { Action, ThunkDispatch } from '@reduxjs/toolkit';
 import { fetchBlog } from '../../redux/blogSlice';
 import { CardCatalog } from '../../components/CardCatalog/CardCatalog';
+import { Title } from '../../components/Title/Title';
 import type { RootState } from '../../redux/store';
 import type { DataBlogResponse } from '../../types/interfaces';
 import './Blog.scss';
@@ -29,7 +30,9 @@ export function Blog() {
     <div className="blog">
       <div className="blog__container _container">
         <div className="blog__body">
-          <div className="blog__title">Blog</div>
+          <div className="blog__title">
+            <Title>Blog</Title>
+          </div>
           <div className="blog__catalog">{blog}</div>
         </div>
       </div>

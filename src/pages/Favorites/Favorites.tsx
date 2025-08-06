@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { CardCatalog } from '../../components/CardCatalog/CardCatalog';
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
+import { Title } from '../../components/Title/Title';
 import type { ICatalogCard } from '../../types/interfaces';
 import type { RootState } from '../../redux/store';
 import favoritesEmpty from '../../assets/images/favorites_empty.png';
@@ -15,7 +16,9 @@ export function Favorites() {
           <div className="blog__breadcrumbs breadcrumbs">
             <Breadcrumbs currentPage={'Favorites'} />
           </div>
-          <div className="blog__title">Favorites</div>
+          <div className="blog__title">
+            <Title>Favorites</Title>
+          </div>
           <div className="blog__catalog">
             {favorites.length < 1 ? <img src={favoritesEmpty} alt="favoritesEmpty" /> : favorites}
           </div>

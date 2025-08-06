@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
+import { Title } from '../../components/Title/Title';
 import './SignIn.scss';
 
 export function SignIn() {
@@ -13,7 +14,9 @@ export function SignIn() {
           <div className="auth-form__breadcrumbs breadcrumbs">
             <Breadcrumbs currentPage={'Sign In'} />
           </div>
-          <div className="blog__title">Sign In</div>
+          <div className="blog__title">
+            <Title>Sign In</Title>
+          </div>
           <form className="auth-form__form">
             <div className="auth-form__item">
               <label htmlFor="email-signIn" className="auth-form__label label">

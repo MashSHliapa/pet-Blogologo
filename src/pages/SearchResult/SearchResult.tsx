@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchBlog } from '../../redux/blogSlice';
 import { CardCatalog } from '../../components/CardCatalog/CardCatalog';
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs';
+import { Title } from '../../components/Title/Title';
 import type { RootState } from '../../redux/store';
 import type { Action, ThunkDispatch } from '@reduxjs/toolkit';
 import type { DataBlogResponse } from '../../types/interfaces';
@@ -37,9 +38,11 @@ export function SearchResult() {
       <div className="blog__container _container">
         <div className="blog__body">
           <div className="blog__breadcrumbs breadcrumbs">
-            <Breadcrumbs currentPage={'Search result'} />
+            <Breadcrumbs currentPage={'Search results'} />
           </div>
-          <div className="blog__title">Search result</div>
+          <div className="blog__title">
+            <Title>Search results "{request}"</Title>
+          </div>
           <div className="blog__catalog">{blog.length > 1 ? blog : <img src={nothingFound} alt="nothingFound" />}</div>
         </div>
       </div>
