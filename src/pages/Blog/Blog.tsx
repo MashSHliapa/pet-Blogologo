@@ -4,6 +4,7 @@ import type { Action, ThunkDispatch } from '@reduxjs/toolkit';
 import { fetchBlog } from '../../redux/blogSlice';
 import { CardCatalog } from '../../components/CardCatalog/CardCatalog';
 import { Title } from '../../components/Title/Title';
+import { Tabs } from '../../components/Tabs/Tabs';
 import type { RootState } from '../../redux/store';
 import type { DataBlogResponse } from '../../types/interfaces';
 import './Blog.scss';
@@ -32,6 +33,9 @@ export function Blog() {
         <div className="blog__body">
           <div className="blog__title">
             <Title>Blog</Title>
+          </div>
+          <div className="blog__tabs">
+            <Tabs />
           </div>
           <div className="blog__catalog">{blog}</div>
         </div>

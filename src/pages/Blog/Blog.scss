@@ -10,6 +10,14 @@
     }
   }
 
+  &__tabs {
+    margin: 47px 0 65px;
+
+    @include layout.breakpoint(sm) {
+      margin: 40px 0 50px;
+    }
+  }
+
   &__catalog {
     display: flex;
     justify-content: center;

@@ -1,0 +1,27 @@
+@use '../../components/Layout/Layout.scss' as layout;
+@use '../../styles/global.scss' as *;
+
+.tabs {
+  &__list {
+    display: flex;
+  }
+
+  &__link {
+    display: block;
+    text-align: center;
+    width: 140px;
+    padding: 20px 0px;
+
+    @include layout.breakpoint(sm) {
+      width: 120px;
+    }
+  }
+
+  &__link_active-light {
+    border-bottom: 2px solid $color-text-light;
+  }
+
+  &__link_active-dark {
+    border-bottom: 2px solid $color-text-dark;
+  }
+}
